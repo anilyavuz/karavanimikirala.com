@@ -1,54 +1,21 @@
 from django.db import models
 
-# Create your models here.
+import uuid
 
-#class Order(models,Model):
+from ..appUsers.models import AppUser as appUser_model
 
+from ..products.models import Product as product_models
 
-''' 1 - Peer to peer system
-2 - Also big brands can join
+class Order(models.Model):
 
-1 - User Profile
-userID(primary key)
-mail
-Name
-Lastname
-Password
-productamount
-Rentedproductamount
+ orderId = models.CharField(max_lenght=100, null=True, blank=True, Unique= True, default=uuid.uuid4)
+ orderStartDate = models.DateField(blank=False, null=False)
+ orderEndDate = models.DateField(blank=False, null=False)
 
-2 - Products 
-ProductID
-productType
-userID(fk)
-productName
-ProductVerification(bool)
-ProductLicense
+#foreign keys
 
-3.Carmodels
-modelid
-Brandid
-Brandname
-Size
-4.extras
+ ownerUserId = models.ForeignKey(appUser_model.appUserId)
+ renterUserId = models.ForeignKey(appUser_model.appUserId)
+ productId = models.ForeignKey(product_models.ProductID) 
 
 
-3.orders
-Productid
-ownerUserid
-Orderid
-Renteruserid
-Orderstartdate
-Orderenddate
-
-3.questionEntries
-questionEntryid user_id(fk)
-Question string
-
-4.answerentries
-Answerentryid
-replierUserid
-Questionentryid
-Askeruserid
-Answer string
- '''
