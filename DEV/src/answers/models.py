@@ -14,6 +14,6 @@ class Answer(models.Model):
 
     #foreign keys
 
-   # replierUserId = models.ForeignKey(appUser_models.app)
+    replierUserId = models.ForeignKey(appUser_models.appUserId)
     questionId = models.ForeignKey(question_models.questionId)
     

@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from DEV.src.users.models import User as user_models
+from DEV.src.appUsers.models import AppUser as appUser_models
 from datetime import date
 
 class Question(models.Model):
@@ -12,6 +12,6 @@ class Question(models.Model):
 
 #foreign keys
 
- askerUserId = models.ForeignKey(user_models.userId)
+ askerUserId = models.ForeignKey(appUser_models.appUserId)
 
 

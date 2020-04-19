@@ -16,6 +16,6 @@ class Order(models.Model):
 
  ownerUserId = models.ForeignKey(appUser_model.appUserId)
  renterUserId = models.ForeignKey(appUser_model.appUserId)
- productId = models.ForeignKey(product_models.ProductID) 
+ productId = models.ForeignKey(product_models.ProductId)
 
 
